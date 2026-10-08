@@ -1,0 +1,3 @@
+# OfflineMode uses ONLY the Python standard library.
+# There are no packages to install.
+# Run with:  python3 server.py

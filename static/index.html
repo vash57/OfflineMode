@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OfflineMode — Step Away from the Screen into Real Life</title>
+  <meta name="description" content="A local AI companion that helps you put your phone down and reconnect with simple, meaningful real-world experiences.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%233d5a3c'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="header-inner container">
+      <a class="brand" href="#" data-view="home">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3 C12 8 8 11 8 16 a4 4 0 0 0 8 0 c0-5-4-8-4-13 Z" fill="currentColor" fill-opacity="0.2"/>
+          <path d="M12 3 C12 8 8 11 8 16 a4 4 0 0 0 8 0 c0-5-4-8-4-13 Z"/>
+          <path d="M12 21 v-2"/>
+        </svg>
+        <span class="brand-name">OfflineMode</span>
+      </a>
+      <div class="header-actions">
+        <span class="motto">An AI that helps you use AI less</span>
+        <a href="#courtyard" class="btn btn-primary btn-sm" id="nav-chat-btn">Start walking</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================================================
+         HOME
+         ============================================================ -->
+    <section id="view-home" class="view">
+
+      <!-- ===== GREEN COUNTRYSIDE BACKDROP ===== -->
+      <div class="landscape" aria-hidden="true">
+        <svg class="landscape-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"  stop-color="#1e2a1a"/>
+              <stop offset="18%" stop-color="#3d3a24"/>
+              <stop offset="42%" stop-color="#8a5a34"/>
+              <stop offset="66%" stop-color="#c8824a"/>
+              <stop offset="84%" stop-color="#e6a76c"/>
+              <stop offset="100%" stop-color="#f3c489"/>
+            </linearGradient>
+            <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%"  stop-color="#ffe9b8" stop-opacity="0.95"/>
+              <stop offset="35%" stop-color="#f3b271" stop-opacity="0.42"/>
+              <stop offset="100%" stop-color="#d97a4d" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="hillsFar" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"  stop-color="#6a5a3a" stop-opacity="0.72"/>
+              <stop offset="100%" stop-color="#3a2e1c" stop-opacity="0.92"/>
+            </linearGradient>
+            <linearGradient id="hillsMid" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"  stop-color="#4d6b3c"/>
+              <stop offset="100%" stop-color="#2c411f"/>
+            </linearGradient>
+            <linearGradient id="hillsNear" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"  stop-color="#2f4a26"/>
+              <stop offset="100%" stop-color="#15220e"/>
+            </linearGradient>
+            <linearGradient id="grassGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"  stop-color="#1d3616"/>
+              <stop offset="100%" stop-color="#0a1206"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Sky -->
+          <rect width="1440" height="900" fill="url(#skyGrad)"/>
+
+          <!-- Sun glow -->
+          <circle cx="720" cy="600" r="380" fill="url(#sunGlow)"/>
+          <circle cx="720" cy="600" r="46" fill="#ffe9c2"/>
+
+          <!-- Birds -->
+          <g stroke="#2a1d10" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.55">
+            <path d="M400,250 q6,-5 12,0 q6,-5 12,0"/>
+            <path d="M455,222 q5,-4 10,0 q5,-4 10,0"/>
+            <path d="M505,245 q4,-3 8,0 q4,-3 8,0"/>
+            <path d="M990,268 q5,-4 10,0 q5,-4 10,0"/>
+            <path d="M1045,240 q4,-3 8,0 q4,-3 8,0"/>
+          </g>
+
+          <!-- Far hills (warm haze) -->
+          <path d="M0,565 Q180,515 400,535 T800,510 T1200,535 T1440,520 L1440,900 L0,900 Z" fill="url(#hillsFar)"/>
+
+          <!-- Far tree line (silhouettes) -->
+          <g fill="#2c2113" opacity="0.62">
+            <path d="M40,570 q10,-24 22,-8 q6,-16 18,-6 q10,-18 22,-4 q8,-16 20,-2 L170,568 Z"/>
+            <path d="M1160,560 q10,-22 22,-6 q8,-16 20,-4 q10,-18 22,-2 L1270,560 Z"/>
+            <path d="M880,545 q8,-16 18,-4 q6,-14 16,-2 q8,-14 18,0 L970,548 Z"/>
+          </g>
+
+          <!-- Mid hills (green) -->
+          <path d="M0,655 Q260,595 520,630 T1020,605 T1440,620 L1440,900 L0,900 Z" fill="url(#hillsMid)"/>
+
+          <!-- Mid tree clusters -->
+          <g>
+            <!-- Left cluster -->
+            <g transform="translate(120, 612)">
+              <ellipse cx="0" cy="10" rx="36" ry="28" fill="#1e3218"/>
+              <ellipse cx="28" cy="16" rx="30" ry="24" fill="#2a4422"/>
+              <ellipse cx="-22" cy="14" rx="26" ry="20" fill="#16260f"/>
+              <rect x="5" y="22" width="4" height="34" fill="#3b2915"/>
+            </g>
+            <!-- Mid-left cluster -->
+            <g transform="translate(340, 632)">
+              <ellipse cx="0" cy="8" rx="30" ry="22" fill="#243c1c"/>
+              <ellipse cx="24" cy="14" rx="24" ry="18" fill="#1c3215"/>
+              <rect x="-2" y="18" width="4" height="28" fill="#3b2915"/>
+            </g>
+            <!-- Right cluster -->
+            <g transform="translate(1090, 622)">
+              <ellipse cx="0" cy="10" rx="38" ry="28" fill="#1e3218"/>
+              <ellipse cx="-26" cy="16" rx="28" ry="22" fill="#2a4422"/>
+              <ellipse cx="24" cy="12" rx="28" ry="22" fill="#16260f"/>
+              <rect x="5" y="24" width="4" height="34" fill="#3b2915"/>
+            </g>
+            <!-- Far right -->
+            <g transform="translate(1330, 642)">
+              <ellipse cx="0" cy="8" rx="28" ry="20" fill="#243c1c"/>
+              <rect x="-2" y="16" width="4" height="26" fill="#3b2915"/>
+            </g>
+          </g>
+
+          <!-- Near hills (deep green) -->
+          <path d="M0,765 Q320,705 640,745 T1280,725 T1440,745 L1440,900 L0,900 Z" fill="url(#hillsNear)"/>
+
+          <!-- Foreground grass silhouette -->
+          <path d="M0,860 Q300,822 620,845 T1440,832 L1440,900 L0,900 Z" fill="url(#grassGrad)"/>
+
+          <!-- Grass blades -->
+          <g stroke="#0a1206" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.95">
+            <path d="M34,892 q-2,-20 3,-36"/>
+            <path d="M58,892 q4,-22 11,-34"/>
+            <path d="M88,890 q-5,-18 0,-34"/>
+            <path d="M118,892 q3,-20 -1,-34"/>
+            <path d="M1320,892 q-3,-20 3,-36"/>
+            <path d="M1352,892 q4,-22 12,-34"/>
+            <path d="M1388,890 q-5,-18 0,-34"/>
+            <path d="M1418,892 q3,-20 -1,-34"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- JOURNEY SECTIONS -->
+      <div class="journey">
+
+        <!-- SCENE 1 · ARRIVAL -->
+        <section class="scene scene-arrival container">
+          <div class="arrival">
+            <span class="eyebrow">Quiet Beginnings</span>
+            <h1 class="display">Use the screen to find<br>something worth experiencing.</h1>
+            <p class="lead">
+              OfflineMode is a small, private AI companion that helps you put
+              your phone down and reconnect with the real world around you.
+            </p>
+            <div class="actions">
+              <a href="#world" class="btn btn-cream btn-lg">Start walking</a>
+              <a href="#courtyard" class="btn btn-outline btn-lg">Talk to OfflineMode</a>
+            </div>
+            <p class="meta-note">No accounts. Runs on your machine. Zero tracking.</p>
+          </div>
+        </section>
+
+        <!-- SCENE 2 · THE WORLD -->
+        <section id="world" class="scene container">
+          <div class="paper-card story">
+            <span class="eyebrow">The Unfiltered World</span>
+            <h2>Before we had something to record,<br>we simply experienced it.</h2>
+            <p>
+              Life doesn't happen inside notifications. It happens in the scent
+              of soil after rain, the warmth of evening tea, talking to
+              grandparents, making things with your hands, and watching the sky
+              change colors without taking a photograph.
+            </p>
+            <div class="icons-row">
+              <div class="icon-tile" title="Earthen lamp">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M12 3 C10 8 6 11 6 15 a6 6 0 0 0 12 0 C18 11 14 8 12 3 Z"/></svg>
+              </div>
+              <div class="icon-tile" title="Clay pot">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M8 4 h8 M7 7 h10 M7 7 C5 12 5 18 8 20 h8 c3-2 3-8 1-13"/></svg>
+              </div>
+              <div class="icon-tile" title="Fresh rain">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M6 13 a4 4 0 0 1 1-8 a5 5 0 0 1 10 1 a3.5 3.5 0 0 1 1 7 Z"/><path d="M9 17 l-1 3 M13 17 l-1 3 M17 17 l-1 3"/></svg>
+              </div>
+              <div class="icon-tile" title="Open sky">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 3 v2 M12 19 v2 M3 12 h2 M19 12 h2 M5.6 5.6 l1.4 1.4 M17 17 l1.4 1.4 M18.4 5.6 L17 7 M7 17 l-1.4 1.4"/></svg>
+              </div>
+            </div>
+            <p class="pull-quote">Look around. What is happening in your space right now?</p>
+          </div>
+        </section>
+
+        <!-- SCENE 3 · RITUALS -->
+        <section class="scene container">
+          <div class="section-heading">
+            <span class="eyebrow eyebrow-light">Reminders of Real Life</span>
+            <h2 class="heading-light">Simple rituals that still<br>make a day feel complete.</h2>
+          </div>
+
+          <div class="rituals-grid">
+            <article class="ritual">
+              <div class="ritual-mark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M12 3 C12 8 8 10 8 15 a4 4 0 0 0 8 0 c0-5-4-7-4-12 Z"/><path d="M12 21 v-3"/></svg>
+              </div>
+              <h3>Hands-on creation</h3>
+              <p>Making things from clay, paper, cardboard or wood — for the joy of creating without a tutorial.</p>
+            </article>
+
+            <article class="ritual">
+              <div class="ritual-mark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M4 8 h12 v6 a4 4 0 0 1-4 4 H8 a4 4 0 0 1-4-4 Z"/><path d="M16 10 h2 a2 2 0 0 1 0 4 h-2"/><path d="M7 3 v2 M11 3 v2"/></svg>
+              </div>
+              <h3>Quiet conversations</h3>
+              <p>Sitting with elders, asking about their childhood memories, and listening without looking at a phone.</p>
+            </article>
+
+            <article class="ritual">
+              <div class="ritual-mark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M3 18 h18 M6 18 a6 6 0 0 1 12 0"/><path d="M12 6 v3"/></svg>
+              </div>
+              <h3>Unrecorded nature</h3>
+              <p>Watching the sunset, listening to bird calls, or sitting by a window during rain — without posting a story.</p>
+            </article>
+
+            <article class="ritual">
+              <div class="ritual-mark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6 l6 6 l-6 6 M20 6 l-6 6 l6 6"/></svg>
+              </div>
+              <h3>Unscripted play</h3>
+              <p>Board games, cooking together, or preparing for a family gathering with your own hands.</p>
+            </article>
+          </div>
+        </section>
+
+        <!-- ========================================================
+             SCENE 4 · COURTYARD  (SPLIT LAYOUT)
+             ======================================================== -->
+        <section id="courtyard" class="scene container">
+          <div class="courtyard">
+            <div class="courtyard-split">
+
+              <!-- LEFT · VISUAL SIDE -->
+              <aside class="courtyard-visual">
+                <span class="eyebrow">The Resting Courtyard</span>
+                <h2>Where are<br>you right now?</h2>
+                <p class="courtyard-lead">
+                  Tell the local companion what's happening around you. It will
+                  suggest one simple thing worth doing offline — then get out
+                  of your way.
+                </p>
+
+                <div class="courtyard-deco" aria-hidden="true">
+                  <svg viewBox="0 0 200 200" width="100%" height="100%" fill="none" stroke="#5e7054" stroke-width="1.6" stroke-linecap="round">
+                    <path d="M30,190 Q70,140 110,100 Q150,60 185,30" opacity="0.9"/>
+                    <path d="M55,160 Q30,148 36,122 Q66,130 55,160 Z" fill="#5e7054" fill-opacity="0.22"/>
+                    <path d="M80,132 Q56,110 74,86 Q98,105 80,132 Z" fill="#5e7054" fill-opacity="0.28"/>
+                    <path d="M108,104 Q90,80 112,62 Q132,84 108,104 Z" fill="#5e7054" fill-opacity="0.32"/>
+                    <path d="M138,76 Q124,54 150,42 Q160,64 138,76 Z" fill="#5e7054" fill-opacity="0.28"/>
+                    <path d="M168,48 Q158,28 182,20 Q188,42 168,48 Z" fill="#5e7054" fill-opacity="0.22"/>
+                  </svg>
+                </div>
+
+                <ul class="courtyard-points">
+                  <li>Runs entirely on your machine</li>
+                  <li>No accounts, no tracking</li>
+                  <li>One suggestion, then it steps aside</li>
+                </ul>
+              </aside>
+
+              <!-- RIGHT · CHAT -->
+              <div class="chat">
+                <div class="chat-top">
+                  <span class="chat-dot" aria-hidden="true"></span>
+                  <span class="chat-title">OfflineMode Companion</span>
+                  <span class="chat-tag">Private · Local</span>
+                </div>
+
+                <div id="chat-log" class="chat-log" aria-live="polite"></div>
+
+                <div id="chips" class="chips">
+                  <button class="chip" type="button" data-prompt="It&rsquo;s raining and I&rsquo;m home. I have a quiet hour.">It&rsquo;s raining at home</button>
+                  <button class="chip" type="button" data-prompt="My family is here and I want a simple, real thing to do together.">Something with family</button>
+                  <button class="chip" type="button" data-prompt="I feel like going outside for 20 minutes without my phone.">Go outside for 20 min</button>
+                  <button class="chip" type="button" data-prompt="I am bored and want to build or make something by hand.">Make something by hand</button>
+                </div>
+
+                <form id="chat-form" class="chat-form">
+                  <input id="chat-input" type="text" placeholder="Tell me what's around you…" autocomplete="off" maxlength="500">
+                  <button class="btn btn-primary" type="submit" id="chat-send" aria-label="Send message">Send</button>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- SCENE 5 · FEATURED IDEA -->
+        <section class="scene container">
+          <div class="idea">
+            <span class="eyebrow eyebrow-light">Featured Offline Suggestion</span>
+            <h3 id="idea-activity">"Sit with someone in your family and ask them about a memory from their childhood. Just listen."</h3>
+            <p id="idea-meta" class="idea-meta">Time: 20 minutes · Rule: No recording</p>
+            <div class="actions">
+              <button class="btn btn-cream btn-lg" id="idea-try">Try this moment</button>
+              <button class="btn btn-outline btn-lg" id="idea-another">Shuffle suggestion</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- SCENE 6 · EXIT -->
+        <section class="scene container text-center">
+          <div class="exit">
+            <div class="exit-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" width="64" height="64">
+                <defs>
+                  <radialGradient id="flameG" cx="50%" cy="72%">
+                    <stop offset="0%" stop-color="#ffe7a8"/>
+                    <stop offset="45%" stop-color="#f5b56b"/>
+                    <stop offset="100%" stop-color="#d3672e" stop-opacity="0.15"/>
+                  </radialGradient>
+                </defs>
+                <ellipse cx="32" cy="46" rx="22" ry="9" fill="#3a2415"/>
+                <ellipse cx="32" cy="44" rx="19" ry="7" fill="#6b4a2c"/>
+                <path d="M32 12 C 26,24 23,34 26,40 C 28,44 36,44 38,40 C 41,34 38,24 32,12 Z" fill="url(#flameG)"/>
+              </svg>
+            </div>
+            <h2>That's enough screen time.</h2>
+            <p class="exit-copy">
+              Use the screen to find something worth experiencing. Then close it.
+              Your next step isn't on this page.
+            </p>
+            <button class="btn btn-primary btn-lg" id="hero-go-offline">Go offline now</button>
+          </div>
+        </section>
+
+      </div>
+    </section>
+
+    <!-- ============ ACTIVITY VIEW ============ -->
+    <section id="view-activity" class="view" hidden>
+      <div class="narrow-container">
+        <div class="paper-card">
+          <span class="eyebrow">Your Offline Moment</span>
+          <h2>An idea worth experiencing</h2>
+          <div id="activity-body" class="activity-box"></div>
+          <div class="actions">
+            <button class="btn btn-primary btn-lg" id="act-go">I'm going offline now</button>
+            <button class="btn btn-outline" data-view="home">Back to journey</button>
+          </div>
+          <p class="meta-note">No tutorials. No photos. No posts. Just be present.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OFFLINE TIMER VIEW ============ -->
+    <section id="view-offline" class="view" hidden>
+      <div class="offline-screen">
+        <div class="exit-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="72" height="72">
+            <defs>
+              <radialGradient id="flameG2" cx="50%" cy="72%">
+                <stop offset="0%" stop-color="#ffe7a8"/>
+                <stop offset="45%" stop-color="#f5b56b"/>
+                <stop offset="100%" stop-color="#d3672e" stop-opacity="0.15"/>
+              </radialGradient>
+            </defs>
+            <ellipse cx="32" cy="46" rx="22" ry="9" fill="#3a2415"/>
+            <ellipse cx="32" cy="44" rx="19" ry="7" fill="#6b4a2c"/>
+            <path d="M32 12 C 26,24 23,34 26,40 C 28,44 36,44 38,40 C 41,34 38,24 32,12 Z" fill="url(#flameG2)">
+              <animate attributeName="opacity" values="0.9;1;0.9" dur="1.8s" repeatCount="indefinite"/>
+            </path>
+          </svg>
+        </div>
+
+        <h2 class="heading-light">Place your device face down.</h2>
+        <p class="offline-sub">The real world is waiting for you.</p>
+
+        <div class="timer" id="timer-display" aria-live="polite">20:00</div>
+
+        <div class="timer-chips" id="timer-chips">
+          <button class="chip" data-timer="10">10 min</button>
+          <button class="chip selected" data-timer="20">20 min</button>
+          <button class="chip" data-timer="30">30 min</button>
+          <button class="chip" data-timer="60">60 min</button>
+          <button class="chip" data-timer="0">No timer</button>
+        </div>
+
+        <p id="timer-done" class="timer-done" hidden>Time's up. That moment was truly yours.</p>
+
+        <div class="actions center">
+          <button class="btn btn-cream btn-lg" id="timer-start">Start</button>
+          <button class="btn btn-outline" id="timer-reset">Reset</button>
+        </div>
+
+        <div class="offline-nav">
+          <button class="btn btn-quiet" id="offline-back">I'm back — reflect on this moment</button>
+          <button class="btn btn-quiet" data-view="home">Return home</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REFLECTION VIEW ============ -->
+    <section id="view-reflection" class="view" hidden>
+      <div class="narrow-container">
+        <div class="paper-card">
+          <span class="eyebrow">Optional Reflection</span>
+          <h2>How was the moment?</h2>
+          <p class="meta-note">No streaks, no public sharing. Saved strictly on your machine.</p>
+
+          <div id="moods" class="chips chips-moods"></div>
+
+          <div class="field">
+            <label for="reflection-note" class="field-label">What did you notice? <span class="muted">(optional)</span></label>
+            <textarea id="reflection-note" rows="3" placeholder="A quiet thought, the scent of soil, or a conversation worth remembering…"></textarea>
+          </div>
+
+          <div class="actions">
+            <button class="btn btn-primary" id="reflection-save">Save stamp</button>
+            <button class="btn btn-outline" data-view="home">Skip</button>
+          </div>
+
+          <p id="reflection-saved" class="saved-note" hidden>Saved to your local memory log. Now go enjoy your day.</p>
+
+          <div class="passport">
+            <h3>Your saved memory stamps</h3>
+            <div id="stamps-container" class="stamps"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>OfflineMode runs locally on your device. Local AI, no accounts, no tracking.</p>
+      <p class="footer-quote">"AI should be the bridge, not the destination."</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

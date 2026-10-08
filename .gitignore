@@ -1,0 +1,14 @@
+# Machine-specific / local configuration — never commit.
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Editor / OS
+.DS_Store
+*.swp
+*.log
+
+# Not used, but kept so a stray install can't leak.
+node_modules/
